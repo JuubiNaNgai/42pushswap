@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 15:55:17 by aleite-b          #+#    #+#              #
-#    Updated: 2023/12/04 15:57:09 by aleite-b         ###   ########.fr        #
+#    Updated: 2023/12/07 20:36:47 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,25 +16,36 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror -g3
 RM = rm -f
 
-SOURCES = src/check_sorted.c \
-			src/index.c \
-			src/instructions.c \
-			src/instructions2.c \
-			src/instructions3.c \
-			src/lst.c \
-			src/lst2.c \
-			src/main.c \
-			src/rotate_a.c \
-			src/rotate_b.c \
-			src/rotate_do.c \
-			src/sort.c \
-			src/utils.c \
+SOURCES = push_swap/index.c \
+			push_swap/main.c \
+			push_swap/rotate_a.c \
+			push_swap/rotate_b.c \
+			push_swap/rotate_do.c \
+			push_swap/sort.c \
+			utils/instructions.c \
+			utils/instructions2.c \
+			utils/instructions3.c \
+			utils/is_sorted.c \
+			utils/lst.c \
+			utils/lst2.c \
+			utils/utils.c \
+
+SOURCES = checker/get_next_line.c \
+			checker/get_next_line_utils.c \
+			checker/main.c \
+			utils/instructions.c \
+			utils/instructions2.c \
+			utils/instructions3.c \
+			utils/is_sorted.c \
+			utils/lst.c \
+			utils/lst2.c \
+			utils/utils.c \
 			
 OBJECTS = $(SOURCES:.c=.o)
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
 .c.o:
-	$(CC) $(FLAGS) -I. -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS) 
 	$(CC) $(FLAGS) -o $(NAME) $(OBJECTS)
@@ -48,11 +59,9 @@ re: clean fclean all
 
 clean:
 	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
-	make fclean -C libft
 
 fclean: clean
 	$(RM) $(NAME)
-	make fclean -C libft
 
 
 .PHONY: all clean fclean re bonus

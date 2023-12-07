@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstinit.c                                          :+:      :+:    :+:   */
+/*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 14:06:16 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/04 09:50:22 by aleite-b         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:52:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,17 @@ t_push_swap	*ft_lstlast(t_push_swap *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_push_swap **lst, t_push_swap *new)
+void	ft_lstadd_back(t_push_swap **lst, t_push_swap *elem)
 {
 	t_push_swap	*tmp;
 
-	if (!lst || !new)
+	if (!lst || !elem)
 		return ;
 	if (!*lst)
-		*lst = new;
+		*lst = elem;
 	else
 	{
 		tmp = ft_lstlast(*lst);
-		tmp->next = new;
+		tmp->next = elem;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:27:12 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/04 16:37:51 by aleite-b         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:24:58 by aleite-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ long	get_min(t_push_swap **stack)
 	long		i;
 	t_push_swap	*tmp;
 
-	i = 0;
 	tmp = *stack;
-	while (tmp->next)
+	i = tmp->nb;
+	while (tmp)
 	{
-		if (i < tmp->nb)
+		if (i > tmp->nb)
 			i = tmp->nb;
 		tmp = tmp->next;
 	}
@@ -33,11 +33,11 @@ long	get_max(t_push_swap **stack)
 	long		i;
 	t_push_swap	*tmp;
 
-	i = 0;
 	tmp = *stack;
-	while (tmp->next)
+	i = tmp->nb;
+	while (tmp)
 	{
-		if (i > tmp->nb)
+		if (i < tmp->nb)
 			i = tmp->nb;
 		tmp = tmp->next;
 	}
@@ -59,22 +59,22 @@ int	get_index(t_push_swap **stack, long nb)
 	return (i);
 }
 
-int	get_index_place_a(t_push_swap **stack, long nb)
+int	get_index_place_a(t_push_swap *stack, long nb)
 {
 	int			i;
 	t_push_swap	*tmp;
 
 	i = 1;
-	if (nb < (*stack)->nb && nb > ft_lstlast(*stack)->nb)
+	if (nb < stack->nb && nb > ft_lstlast(stack)->nb)
 		i = 0;
-	else if (nb > get_max(stack) || nb < get_min(stack))
-		i = get_index(stack, get_max(stack));
+	else if (nb > get_max(&stack) || nb < get_min(&stack))
+		i = get_index(&stack, get_max(&stack));
 	else
 	{
-		tmp = (*stack)->next;
-		while ((*stack)->nb > nb && tmp->nb < nb)
+		tmp = stack->next;
+		while (stack->nb > nb || tmp->nb < nb)
 		{
-			*stack = (*stack)->next;
+			stack = stack->next;
 			tmp = tmp->next;
 			i++;
 		}
@@ -82,22 +82,22 @@ int	get_index_place_a(t_push_swap **stack, long nb)
 	return (i);
 }
 
-int	get_index_place_b(t_push_swap **stack, long nb)
+int	get_index_place_b(t_push_swap *stack, long nb)
 {
 	int			i;
 	t_push_swap	*tmp;
 
 	i = 1;
-	if (nb > (*stack)->nb && nb < ft_lstlast(*stack)->nb)
+	if (nb > stack->nb && nb < ft_lstlast(stack)->nb)
 		i = 0;
-	else if (nb > get_max(stack) || nb < get_min(stack))
-		i = get_index(stack, get_max(stack));
+	else if (nb > get_max(&stack) || nb < get_min(&stack))
+		i = get_index(&stack, get_max(&stack));
 	else
 	{
-		tmp = (*stack)->next;
-		while ((*stack)->nb < nb && tmp->nb > nb)
+		tmp = stack->next;
+		while (stack->nb < nb || tmp->nb > nb)
 		{
-			*stack = (*stack)->next;
+			stack = stack->next;
 			tmp = tmp->next;
 			i++;
 		}

@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:39:52 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/04 15:58:27 by aleite-b         ###   ########.fr       */
+/*   Updated: 2023/12/07 20:24:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -27,9 +31,10 @@ int			check_doublons(t_push_swap **nbrs, char *str);
 int			lst_init(t_push_swap **lst, char *str);
 t_push_swap	*lst_new(long nb);
 t_push_swap	*ft_lstlast(t_push_swap *lst);
-void		ft_lstadd_back(t_push_swap **lst, t_push_swap *new);
+void		ft_lstadd_back(t_push_swap **lst, t_push_swap *elem);
 int			ft_lstsize(t_push_swap *lst);
 int			ft_atoi(const char *nbr);
+int			ft_strncmp(const char *s1, const char *s2, size_t n)
 void		free_lst(t_push_swap **lst);
 
 void		sa(t_push_swap **stack, int wr);
@@ -49,8 +54,8 @@ int			is_sorted(t_push_swap *lst);
 long		get_min(t_push_swap **stack);
 long		get_max(t_push_swap **stack);
 int			get_index(t_push_swap **stack, long nb);
-int			get_index_place_a(t_push_swap **stack, long nb);
-int			get_index_place_b(t_push_swap **stack, long nb);
+int			get_index_place_a(t_push_swap *stack, long nb);
+int			get_index_place_b(t_push_swap *stack, long nb);
 
 int			rotate_calcul_b(t_push_swap **stack_a,
 				t_push_swap **stack_b);
@@ -80,5 +85,15 @@ int			do_rrarb(t_push_swap **stack_a,
 				t_push_swap **stack_b, long nb, char aorb);
 int			do_rarrb(t_push_swap **stack_a,
 				t_push_swap **stack_b, long nb, char aorb);
+
+				
+char		*new_line(char *str);
+char		*get_line(char *str);
+char		*line_to_str(int fd, char *str);
+char		*get_next_line(int fd);
+char		*ft_strjoin(char *s1, char *s2);
+int			ft_strchr(const char *s, int c);
+size_t		ft_strlen(const char *s);
+void		*ft_calloc(size_t count, size_t size);
 
 #endif

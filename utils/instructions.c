@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:19:41 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/04 10:49:35 by aleite-b         ###   ########.fr       */
+/*   Updated: 2023/12/07 07:54:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,26 @@ void	pa(t_push_swap **stack_a, t_push_swap **stack_b, int wr)
 {
 	t_push_swap	*tmp;
 
-	if (!*stack_a)
+	if (!*stack_b)
 		return ;
 	tmp = *stack_a;
 	*stack_a = *stack_b;
 	*stack_b = (*stack_b)->next;
-	(*stack_a)-> next = tmp;
+	(*stack_a)->next = tmp;
 	if (wr)
-		write(1, "sa\n", 3);
+		write(1, "pa\n", 3);
 }
 
 void	pb(t_push_swap **stack_a, t_push_swap **stack_b, int wr)
 {
 	t_push_swap	*tmp;
 
-	if (!*stack_b)
+	if (!*stack_a)
 		return ;
 	tmp = *stack_b;
 	*stack_b = *stack_a;
 	*stack_a = (*stack_a)->next;
-	(*stack_b)-> next = tmp;
+	(*stack_b)->next = tmp;
 	if (wr)
-		write(1, "sa\n", 3);
+		write(1, "pb\n", 3);
 }
