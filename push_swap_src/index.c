@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:27:12 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/08 22:00:00 by antoine          ###   ########.fr       */
+/*   Updated: 2023/12/12 14:18:52 by aleite-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,29 +55,6 @@ int	get_index(t_push_swap **stack, long nb)
 	{
 		i++;
 		tmp = tmp->next;
-	}
-	return (i);
-}
-
-int	get_index_place_a(t_push_swap *stack, long nb)
-{
-	int			i;
-	t_push_swap	*tmp;
-
-	i = 1;
-	if (nb < stack->nb && nb > ft_lstlast(stack)->nb)
-		i = 0;
-	else if (nb > get_max(&stack) || nb < get_min(&stack))
-		i = get_index(&stack, get_max(&stack));
-	else
-	{
-		tmp = stack->next;
-		while (stack->nb > nb || tmp->nb < nb)
-		{
-			stack = stack->next;
-			tmp = tmp->next;
-			i++;
-		}
 	}
 	return (i);
 }

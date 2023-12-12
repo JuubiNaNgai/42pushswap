@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
+#    By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 15:55:17 by aleite-b          #+#    #+#              #
-#    Updated: 2023/12/12 08:27:15 by antoine          ###   ########.fr        #
+#    Updated: 2023/12/12 14:19:29 by aleite-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ RM = rm -f
 
 SOURCES = push_swap_src/index.c \
 			push_swap_src/main.c \
-			push_swap_src/rotate_a.c \
-			push_swap_src/rotate_b.c \
+			push_swap_src/rotate.c \
 			push_swap_src/rotate_do.c \
 			push_swap_src/sort.c \
 			utils/args.c \

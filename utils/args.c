@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 00:14:08 by antoine           #+#    #+#             */
-/*   Updated: 2023/12/09 00:16:35 by antoine          ###   ########.fr       */
+/*   Updated: 2023/12/12 14:36:38 by aleite-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	get_argsnbrs(int argc, char **argv, t_push_swap **nbrs)
 
 int	get_args(int argc, char **argv, t_push_swap **nbrs)
 {
-	if (argc < 2)
+	if (argc < 2 || argv[1][0] == '\0')
 		return (-1);
 	else
 		if (get_argsnbrs(argc, argv, nbrs) == -1)

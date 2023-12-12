@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aleite-b <aleite-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:39:52 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/09 00:15:15 by antoine          ###   ########.fr       */
+/*   Updated: 2023/12/12 14:22:23 by aleite-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int			is_sorted(t_push_swap *lst);
 long		get_min(t_push_swap **stack);
 long		get_max(t_push_swap **stack);
 int			get_index(t_push_swap **stack, long nb);
-int			get_index_place_a(t_push_swap *stack, long nb);
 int			get_index_place_b(t_push_swap *stack, long nb);
 
 int			rotate_calcul_b(t_push_swap **stack_a,
@@ -71,24 +70,15 @@ int			instr_to_rarrb(t_push_swap **stack_a,
 				t_push_swap **stack_b, long nb);
 int			instr_to_rrarb(t_push_swap **stack_a,
 				t_push_swap **stack_b, long nb);
-int			rotate_calcul_a(t_push_swap **stack_a, t_push_swap **stack_b);
-int			instr_to_rbra(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb);
-int			instr_to_rrbrra(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb);
-int			instr_to_rbrra(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb);
-int			instr_to_rrbra(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb);
 
 int			do_rarb(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb, char aorb);
+				t_push_swap **stack_b, long nb);
 int			do_rrarrb(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb, char aorb);
+				t_push_swap **stack_b, long nb);
 int			do_rrarb(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb, char aorb);
+				t_push_swap **stack_b, long nb);
 int			do_rarrb(t_push_swap **stack_a,
-				t_push_swap **stack_b, long nb, char aorb);
+				t_push_swap **stack_b, long nb);
 
 char		*new_line(char *str);
 char		*get_line(char *str);
