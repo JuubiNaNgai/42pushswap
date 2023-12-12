@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 10:10:12 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/07 19:30:23 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/08 22:00:56 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,7 @@ void	ft_sort(t_push_swap **stack_a)
 	sortb(stack_a, &stack_b);
 	if (!is_sorted(*stack_a))
 		sort_three(stack_a);
-	t_push_swap	*tmpa = *stack_a;
-	printf("A ; \n");
-	while (tmpa)
-	{
-		printf("%ld - ", tmpa->nb);
-		tmpa = tmpa->next;
-	}
-	t_push_swap	*tmpb = stack_b;
-	printf("\nB ; \n");
-	while (tmpb)
-	{
-		printf("%ld - ", tmpb->nb);
-		tmpb = tmpb->next;
-	}
 	sorta(stack_a, &stack_b);
-	
 	i = get_index(stack_a, get_min(stack_a));
 	if (i > ft_lstsize(*stack_a) - i)
 		while ((*stack_a)->nb != get_min(stack_a))
@@ -128,18 +113,6 @@ void	ft_sort(t_push_swap **stack_a)
 		{
 			ra(stack_a, 1);
 		}
-	}
-	
-	while (*stack_a)
-	{
-		printf("%ld - ", (*stack_a)->nb);
-		*stack_a = (*stack_a)->next;
-	}
-	printf("\nB : \n");
-	while (stack_b)
-	{
-		printf("%ld - ", stack_b->nb);
-		stack_b = stack_b->next;
 	}
 	return ;
 }

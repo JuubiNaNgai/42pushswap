@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:39:52 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/07 20:24:19 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/09 00:15:15 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ t_push_swap	*ft_lstlast(t_push_swap *lst);
 void		ft_lstadd_back(t_push_swap **lst, t_push_swap *elem);
 int			ft_lstsize(t_push_swap *lst);
 int			ft_atoi(const char *nbr);
-int			ft_strncmp(const char *s1, const char *s2, size_t n)
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		free_lst(t_push_swap **lst);
+
+int			get_strnbrs(t_push_swap **nbrs, char *argv);
+int			get_argsnbrs(int argc, char **argv, t_push_swap **nbrs);
+int			get_args(int argc, char **argv, t_push_swap **nbrs);
 
 void		sa(t_push_swap **stack, int wr);
 void		sb(t_push_swap **stack, int wr);
@@ -86,7 +90,6 @@ int			do_rrarb(t_push_swap **stack_a,
 int			do_rarrb(t_push_swap **stack_a,
 				t_push_swap **stack_b, long nb, char aorb);
 
-				
 char		*new_line(char *str);
 char		*get_line(char *str);
 char		*line_to_str(int fd, char *str);

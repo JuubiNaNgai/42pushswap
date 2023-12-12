@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:30:43 by aleite-b          #+#    #+#             */
-/*   Updated: 2023/12/07 17:15:06 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/08 22:00:08 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	instr_to_rrarrb(t_push_swap **stack_a, t_push_swap **stack_b, long nb)
 	i = 0;
 	if (get_index_place_b(*stack_b, nb) != 0)
 		i = ft_lstsize(*stack_b) - get_index_place_b(*stack_b, nb);
-	if ((i < ft_lstsize(*stack_a) - get_index(stack_a, nb)) && get_index(stack_a, nb))
+	if ((i < ft_lstsize(*stack_a) - get_index(stack_a, nb))
+		&& get_index(stack_a, nb))
 		i = ft_lstsize(*stack_a) - get_index(stack_a, nb);
 	return (i);
 }

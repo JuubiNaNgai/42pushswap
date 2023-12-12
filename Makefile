@@ -3,25 +3,27 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: antoine <antoine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 15:55:17 by aleite-b          #+#    #+#              #
-#    Updated: 2023/12/07 20:36:47 by marvin           ###   ########.fr        #
+#    Updated: 2023/12/12 08:27:15 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS_NAME = checker
 
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g3
 RM = rm -f
 
-SOURCES = push_swap/index.c \
-			push_swap/main.c \
-			push_swap/rotate_a.c \
-			push_swap/rotate_b.c \
-			push_swap/rotate_do.c \
-			push_swap/sort.c \
+SOURCES = push_swap_src/index.c \
+			push_swap_src/main.c \
+			push_swap_src/rotate_a.c \
+			push_swap_src/rotate_b.c \
+			push_swap_src/rotate_do.c \
+			push_swap_src/sort.c \
+			utils/args.c \
 			utils/instructions.c \
 			utils/instructions2.c \
 			utils/instructions3.c \
@@ -30,9 +32,10 @@ SOURCES = push_swap/index.c \
 			utils/lst2.c \
 			utils/utils.c \
 
-SOURCES = checker/get_next_line.c \
-			checker/get_next_line_utils.c \
-			checker/main.c \
+BONUS_SOURCES = checker_src/get_next_line.c \
+			checker_src/get_next_line_utils.c \
+			checker_src/main.c \
+			utils/args.c \
 			utils/instructions.c \
 			utils/instructions2.c \
 			utils/instructions3.c \
@@ -51,7 +54,7 @@ $(NAME): $(OBJECTS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJECTS)
 
 bonus: $(BONUS_OBJECTS)
-	$(CC) $(FLAGS) -o $(NAME) $(BONUS_OBJECTS)
+	$(CC) $(FLAGS) -o $(BONUS_NAME) $(BONUS_OBJECTS)
 
 all: $(NAME)
 
@@ -61,7 +64,7 @@ clean:
 	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS_NAME)
 
 
 .PHONY: all clean fclean re bonus
